@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "MediumLLWeb-Regular";
+    src: url('../fonts/MediumLLWeb-Regular.woff') format('woff2'),
+         url('../fonts/MediumLLWeb-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .iloq-container {
     background-color: #173D4F;
     height: 100vh;
@@ -16,6 +24,11 @@
             padding: 4px;
             font-size: 12px;
         }
+    }
+
+    .header-row {
+        display: flex;
+        justify-content: space-between;
     }
 
     .content-wrapper {
@@ -45,11 +58,11 @@
         }
 
         .chart-opex {
-            height: 300px;
+            height: 250px;
         }
 
         .chart-tco {
-            height: 350px;
+            height: 300px;
         }
     }
 
@@ -90,6 +103,10 @@
             display: flex;
             justify-content: space-between;
             width: 50%;
+            font-family: "MediumLLWeb-Regular";
+            font-weight: 700;
+            color: #9AABB3;
+            font-size: 10px;
         }
 
         .header-column {
@@ -108,7 +125,7 @@
         .card-title {
             font-size: 18px;
             font-weight: 600;
-            font-family: "MediumLLWeb-Regular";
+            font-family: "MediumLLWeb-Bold";
         }
     }
 
