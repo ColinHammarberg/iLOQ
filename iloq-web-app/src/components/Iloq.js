@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import './Iloq.scss';  
 import IloqHeader from './IloqHeader';
 import IloqCard from './IloqCard';
+import IloqChart from './IloqChart'; // Import the new chart component
 import { Button, TextField, Divider } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Iloq = () => {
     const [step, setStep] = useState(1);
@@ -31,6 +34,21 @@ const Iloq = () => {
         { label: 'Average cost of every theft', name: 'opex2', iloqValue: '', mechanicalValue: '$5000' }
     ];
 
+    // Sample chart data (you can adjust this based on your needs)
+    const chartDataOPEX = [
+        { name: 'Year 1', 'Mechanical system': 1000, 'Credit': 500 },
+        { name: 'Year 2', 'Mechanical system': 1200, 'Credit': 600 },
+        { name: 'Year 3', 'Mechanical system': 1500, 'Credit': 700 },
+        // Add more years as necessary
+    ];
+
+    const chartDataTCO = [
+        { name: 'Year 1', 'Mechanical system': 2000, 'Credit': 800 },
+        { name: 'Year 2', 'Mechanical system': 2200, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 2500, 'Credit': 1200 },
+        // Add more years as necessary
+    ];
+
     const renderGeneralParameters = () => (
         <div className="general-parameters">
             <h2>General Parameters</h2>
@@ -54,7 +72,6 @@ const Iloq = () => {
             <Divider />
         </div>
     );
-    
 
     const handleNext = () => {
         setStep((prevStep) => prevStep + 1);
@@ -72,25 +89,42 @@ const Iloq = () => {
 
             {step === 2 && (
                 <>
-                    <IloqCard
-                        title="Carpex"
-                        data={carpexData}
-                        totalIloqCost="$291"
-                        totalMechanicalCost="$5 000"
-                    />
+                    <div className="content-wrapper">
+                        <div className="cards-section">
+                            <IloqCard
+                                title="Carpex"
+                                data={carpexData}
+                                totalIloqCost="$193,995"
+                                totalMechanicalCost="In place already"
+                            />
 
-                    <IloqCard
-                        title="OPEX: Inhouse vandalism"
-                        data={opexData}
-                        totalIloqCost=""
-                        totalMechanicalCost="$75 000"
-                    />
+                            <IloqCard
+                                title="OPEX: Soft lease costs"
+                                data={opexData}
+                                totalIloqCost="$7804"
+                                totalMechanicalCost=""
+                            />
+                        </div>
+
+                        <div className="chart-section">
+                            <IloqChart title="OPEX" data={chartDataOPEX} className="chart-opex" />
+                            <IloqChart title="TCO" data={chartDataTCO} className="chart-tco" />
+                        </div>
+                    </div>
                 </>
             )}
 
             <div className="step-navigation">
-                {step > 1 && <Button onClick={handleBack} className="back-btn">Back</Button>}
-                {step < 2 && <Button onClick={handleNext} className="next-btn">Next</Button>}
+                {step > 1 && (
+                    <Button onClick={handleBack} className="back-btn" startIcon={<ArrowBackIcon />}>
+                        Back
+                    </Button>
+                )}
+                {step < 2 && (
+                    <Button onClick={handleNext} className="next-btn" endIcon={<ArrowForwardIcon />}>
+                        Next
+                    </Button>
+                )}
             </div>
         </div>
     );
