@@ -2,9 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _debounce from 'lodash/debounce';
-import TextField from '@material-ui/core/TextField';
-
-const validateUtils = require('validation-utils').validationHelper;
+import { TextField } from '@mui/material';
 
 class TextFieldEnhanced extends PureComponent {
   constructor(props) {
@@ -21,7 +19,6 @@ class TextFieldEnhanced extends PureComponent {
     };
     this.onKeyDown = this.onKeyDown.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
-    this.validateDebounced = _debounce(() => this.isValid(), 400);
     this.inputRef = React.createRef();
   }
 
@@ -41,59 +38,10 @@ class TextFieldEnhanced extends PureComponent {
     event.persist();
     const value = event.target.value;
     this.setState({ value }, () => {
-      if (this.state.error) {
-        this.validateDebounced();
-      }
       if (this.props.onChange) {
         this.props.onChange(this.props.name, value);
       }
     });
-  }
-
-  isValid() {
-    const validation = { error: null };
-    const { value } = this.state;
-    const { required, minLength, maxLength, focusOnError } = this.props;
-    const type = this.props.type || 'text';
-    try {
-      if (required) {
-        validateUtils.notEmpty(value?.trim(), 'This field is required');
-      }
-      if (value) {
-        if (type === 'email') {
-          validateUtils.booleanTrue(
-            'Whoops! You need to use a valid email address.'
-          );
-        } else if (type === 'domain') {
-          validateUtils.booleanTrue(
-            'Please input valid website domain'
-          );
-        }
-      }
-      if (minLength && value) {
-        validateUtils.booleanTrue(
-          value.length >= minLength,
-          'Text must be greater than or equal to {{minLength}} characters'
-        );
-      }
-      if (maxLength && value) {
-        validateUtils.booleanTrue(
-          value.length <= maxLength,
-          'Text must be less than or equal to {{maxLength}} characters'
-        );
-      }
-      if (this.props.validate) {
-        validation.error = this.props.validate(value);
-      }
-    } catch (e) {
-      validation.error = e.message;
-    }
-    this.setState(validation);
-    const isValid = !validation.error;
-    if (focusOnError && !isValid) {
-      this.inputRef.current.focus();
-    }
-    return isValid;
   }
 
   render() {
