@@ -8,7 +8,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Iloq = () => {
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(2);
 
     const generalParametersData = [
         { label: 'Number of padlocks', iloqValue: '500', mechanicalValue: '500' },

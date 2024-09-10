@@ -18,9 +18,9 @@ const IloqChart = ({ title, data, className }) => {
                     </div>
                 </div>
             </div>
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height={225}>
                 <BarChart data={data}>
-                    <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid horizontal={true} vertical={false} strokeDasharray="0" />
                     {/* Hiding the "Years" label */}
                     <XAxis dataKey="name" hide />
                     <YAxis />
