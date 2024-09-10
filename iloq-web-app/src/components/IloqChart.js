@@ -1,20 +1,33 @@
 // IloqChart.jsx
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const IloqChart = ({ title, data }) => {
+const IloqChart = ({ title, data, className }) => {
     return (
-        <div className="iloq-chart">
-            <h3>{title}</h3>
+        <div className={`iloq-chart ${className}`}>
+            <div className="chart-header">
+                <h3>{title}</h3>
+                <div className="legend">
+                    <div className="legend-item">
+                        <div className="color-box" style={{ backgroundColor: '#9AABB3' }}></div>
+                        <span>Mechanical system</span>
+                    </div>
+                    <div className="legend-item">
+                        <div className="color-box" style={{ backgroundColor: '#F3E765' }}></div>
+                        <span>Credit</span>
+                    </div>
+                </div>
+            </div>
             <ResponsiveContainer width="100%" height={200}>
                 <BarChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
+                    {/* Hiding the "Years" label */}
+                    <XAxis dataKey="name" hide />
                     <YAxis />
                     <Tooltip />
-                    <Legend />
-                    <Bar dataKey="Mechanical system" fill="#173D4F" />
-                    <Bar dataKey="Credit" fill="#F7D358" />
+                    {/* Stacked Bars */}
+                    <Bar dataKey="Mechanical system" stackId="a" fill="#30708B" />
+                    <Bar dataKey="Credit" stackId="a" fill="#F3E765" />
                 </BarChart>
             </ResponsiveContainer>
         </div>

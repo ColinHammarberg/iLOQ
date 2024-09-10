@@ -34,19 +34,35 @@ const Iloq = () => {
         { label: 'Average cost of every theft', name: 'opex2', iloqValue: '', mechanicalValue: '$5000' }
     ];
 
-    // Sample chart data (you can adjust this based on your needs)
     const chartDataOPEX = [
-        { name: 'Year 1', 'Mechanical system': 1000, 'Credit': 500 },
-        { name: 'Year 2', 'Mechanical system': 1200, 'Credit': 600 },
-        { name: 'Year 3', 'Mechanical system': 1500, 'Credit': 700 },
-        // Add more years as necessary
+        { name: 'Year 1', 'Mechanical system': 1000, 'Credit': 1000 },
+        { name: 'Year 2', 'Mechanical system': 1200, 'Credit': 1200 },
+        { name: 'Year 3', 'Mechanical system': 1500, 'Credit': 1500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 1500, 'Credit': 1500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 1500, 'Credit': 1500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 1500, 'Credit': 1500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 1500, 'Credit': 1500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
     ];
 
     const chartDataTCO = [
-        { name: 'Year 1', 'Mechanical system': 2000, 'Credit': 800 },
-        { name: 'Year 2', 'Mechanical system': 2200, 'Credit': 1000 },
-        { name: 'Year 3', 'Mechanical system': 2500, 'Credit': 1200 },
-        // Add more years as necessary
+        { name: 'Year 1', 'Mechanical system': 2000, 'Credit': 2000 },
+        { name: 'Year 2', 'Mechanical system': 2200, 'Credit': 2200 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 2500, 'Credit': 2500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 2500, 'Credit': 2500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 2500, 'Credit': 2500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 2500, 'Credit': 2500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
+        { name: 'Year 3', 'Mechanical system': 2500, 'Credit': 2500 },
+        { name: 'Year 3', 'Mechanical system': 750, 'Credit': 1000 },
     ];
 
     const renderGeneralParameters = () => (
