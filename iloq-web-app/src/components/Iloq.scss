@@ -9,7 +9,6 @@
 .iloq-container {
     background-color: #173D4F;
     height: 100vh;
-    gap: 24px;
     display: flex;
     flex-direction: column;
 
@@ -34,16 +33,15 @@
     .content-wrapper {
         display: flex;
         justify-content: space-between;
-        margin-top: 24px;
         padding: 24px;
         gap: 24px;
     }
 
     .cards-section {
         width: 60%;
+        gap: 24px;
         display: flex;
         flex-direction: column;
-        gap: 24px;
     }
 
     .chart-section {
@@ -103,12 +101,16 @@
         }
 
         .chart-opex {
-            height: 250px;
+            height: 40%;
         }
 
         .chart-tco {
-            height: 300px;
+            height: 60%;
         }
+    }
+
+    .general-parameters {
+        margin: 24px;
     }
 
     .card, .general-parameters {

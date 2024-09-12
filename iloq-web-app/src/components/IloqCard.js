@@ -1,4 +1,3 @@
-// IloqCard.jsx
 import React from 'react';
 import { Divider } from '@mui/material';
 import TextFieldEnhanced from './TextFieldEnhanced';
@@ -37,6 +36,7 @@ const IloqCard = ({ title, data, totalIloqCost, totalMechanicalCost }) => {
                 </div>
                 <Divider />
                 {renderRow(data)}
+                <Divider />
                 <div className="total-row">
                     <div>Total yearly cost</div>
                     <div>{totalIloqCost}</div>
